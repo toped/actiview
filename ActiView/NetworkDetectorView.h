@@ -21,9 +21,11 @@
 
 @interface NetworkDetectorView : UIView
 
+@property (nonatomic, assign) IBOutlet id <NetworkDetectorViewDelegate> delegate;
 @property (nonatomic) BOOL statusChanged;
 @property (nonatomic) Reachability *internetReachability;
 @property (nonatomic, strong) UIView *notification;
-@property (nonatomic, weak) id <NetworkDetectorViewDelegate> delegate;
+@property (nonatomic) NSInteger animationSpeed;
+
 
 @end

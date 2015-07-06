@@ -20,14 +20,16 @@
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // Do any additional setup after loading the view from its nib.
     
-    [(NetworkDetectorView *) self.view setDelegate:self];
-
+    //[(NetworkDetectorView *) self.view setDelegate:self];
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma mark - NetworkDtectorView Delegate Methods
 
 -(void)detectorView:(NetworkDetectorView *)detectorView networkStatusDidChangeWithReachableStatus:(BOOL)reachableStatus {
     

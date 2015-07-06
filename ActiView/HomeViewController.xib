@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
@@ -12,27 +12,42 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="NetworkDetectorView">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internet available!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh1-Iy-ubN">
-                    <rect key="frame" x="197" y="215" width="207" height="21"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ltV-uI-EdQ" customClass="NetworkDetectorView">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Internet available!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kh1-Iy-ubN">
+                            <rect key="frame" x="197" y="226" width="207" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="207" id="2VU-o7-DQn"/>
+                                <constraint firstAttribute="height" constant="21" id="ibX-bE-cIF"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="207" id="FNh-FD-hqw"/>
-                        <constraint firstAttribute="height" constant="21" id="GZG-Fg-Z6k"/>
+                        <constraint firstItem="kh1-Iy-ubN" firstAttribute="top" secondItem="ltV-uI-EdQ" secondAttribute="top" constant="226" id="ALp-Ik-MkX"/>
+                        <constraint firstItem="kh1-Iy-ubN" firstAttribute="centerX" secondItem="ltV-uI-EdQ" secondAttribute="centerX" id="Tun-Vs-hfC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                    <connections>
+                        <outlet property="delegate" destination="-1" id="0WP-Cn-hb5"/>
+                    </connections>
+                </view>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kh1-Iy-ubN" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Qxz-6H-tYi"/>
-                <constraint firstItem="kh1-Iy-ubN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="215" id="Yp2-4e-bfh"/>
+                <constraint firstAttribute="bottom" secondItem="ltV-uI-EdQ" secondAttribute="bottom" id="9wb-XQ-KLH"/>
+                <constraint firstItem="ltV-uI-EdQ" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="J0h-AX-Xj1"/>
+                <constraint firstItem="ltV-uI-EdQ" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="VHu-Ol-0vu"/>
+                <constraint firstAttribute="trailing" secondItem="ltV-uI-EdQ" secondAttribute="trailing" id="agh-sQ-Me4"/>
             </constraints>
-            <point key="canvasLocation" x="646" y="477"/>
+            <point key="canvasLocation" x="234" y="525"/>
         </view>
     </objects>
 </document>

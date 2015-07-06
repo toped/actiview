@@ -47,7 +47,7 @@
     [self updateInterfaceWithReachability:_internetReachability];
     
     _statusChanged = NO;
-
+    _animationSpeed = 1.5;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -89,7 +89,7 @@
             CGRect screenRect = [[UIScreen mainScreen] bounds];
             CGRect notificationFrame = CGRectMake(0, 0, screenRect.size.width, 22);
             
-            [UIView animateWithDuration:1.5
+            [UIView animateWithDuration:self.animationSpeed
                                   delay:0.0
                                 options: UIViewAnimationOptionCurveEaseInOut
                              animations:^{
@@ -111,7 +111,7 @@
             CGRect notificationFrame = CGRectMake(0, 0, screenRect.size.width, 22);
             notificationFrame.origin.y = -(self.bounds.size.height); //move off screen
             
-            [UIView animateWithDuration:1.5
+            [UIView animateWithDuration:self.animationSpeed
                                   delay:0.0
                                 options: UIViewAnimationOptionCurveEaseInOut
                              animations:^{
@@ -132,7 +132,7 @@
             CGRect notificationFrame = CGRectMake(0, 0, screenRect.size.width, 22);
             notificationFrame.origin.y = -(self.bounds.size.height); //move off screen
             
-            [UIView animateWithDuration:1.5
+            [UIView animateWithDuration:self.animationSpeed
                                   delay:0.0
                                 options: UIViewAnimationOptionCurveEaseInOut
                              animations:^{
