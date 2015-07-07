@@ -25,10 +25,12 @@
     notificationFrame.origin.y = -(self.bounds.size.height); //move off screen
     _notification = [[UIView alloc] initWithFrame:notificationFrame];
     _notification.backgroundColor = [UIColor colorWithRed:65.0/255.0 green:103.0/255.0 blue:181.0/255.0 alpha:.7];
+
     [self addSubview:_notification];
     
     UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, screenRect.size.width, 22)];
-    
+    messageLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    // initialize
     messageLabel.text = @"Internet connection not available.";
     messageLabel.textColor = [UIColor whiteColor];
     messageLabel.numberOfLines = 0;
@@ -36,7 +38,20 @@
     messageLabel.font = [UIFont fontWithName:@"Avenir-Light" size:16];
     
     [_notification addSubview:messageLabel];
-
+    
+    
+    NSLayoutConstraint *width =[NSLayoutConstraint
+                                constraintWithItem:messageLabel
+                                attribute:NSLayoutAttributeWidth
+                                relatedBy:0
+                                toItem:_notification
+                                attribute:NSLayoutAttributeWidth
+                                multiplier:1.0
+                                constant:0];
+    
+    [_notification addConstraint:width];
+    
+    
     /*
      Observe the kNetworkReachabilityChangedNotification. When that notification is posted, the method reachabilityChanged will be called.
      */
@@ -48,6 +63,9 @@
     
     _statusChanged = NO;
     _animationSpeed = 1.5;
+    
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector:@selector(deviceOrientationDidChange:) name: UIDeviceOrientationDidChangeNotification object: nil];
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -148,8 +166,22 @@
             
     }
 
+}
+
+- (void)deviceOrientationDidChange:(NSNotification *)notification {
+    
+    //Obtain current device orientation
+    //UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    //Obtain the current _notification frame
+    CGRect currentFrame = _notification.frame;
+    CGRect screenRect = [[UIScreen mainScreen] bounds];
+    
+    _notification.frame = CGRectMake(currentFrame.origin.x, currentFrame.origin.y, screenRect.size.width, 22);
     
 }
+
+
 
 
 @end

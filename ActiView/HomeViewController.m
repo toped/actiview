@@ -19,9 +19,6 @@
     self.navigationItem.title = @"Actiview Network Detector";
     self.edgesForExtendedLayout = UIRectEdgeNone;
     // Do any additional setup after loading the view from its nib.
-    
-    //[(NetworkDetectorView *) self.view setDelegate:self];
-    
 }
 
 - (void)didReceiveMemoryWarning {
